@@ -18,6 +18,7 @@ public class PlayerController : Singleton<PlayerController>
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer mySpriteRenderer;
+    private Knockback knockback;
     private float startingMoveSpeed;
 
     private bool facingLeft = false;
@@ -31,6 +32,7 @@ public class PlayerController : Singleton<PlayerController>
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        knockback = GetComponent<Knockback>();
     }
 
     private void Start()
@@ -64,14 +66,16 @@ public class PlayerController : Singleton<PlayerController>
     private void PlayerInput()
     {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
+
+        anim.SetFloat("moveX", movement.x);
+        anim.SetFloat("moveY", movement.y);
     }
 
     private void Move()
     {
-        rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
+        if (knockback.GettingKnockedBack) { return; }
 
-        anim.SetFloat("moveX", movement.x);
-        anim.SetFloat("moveY", movement.y);
+        rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
     private void FlipTowardsMouse()

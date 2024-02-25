@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7565892619377465122}
   - component: {fileID: 7816829902722109479}
   - component: {fileID: 1563259852481501040}
+  - component: {fileID: -8270170481200883993}
   m_Layer: 0
   m_Name: Magic Laser
   m_TagString: Untagged
@@ -189,3 +190,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 0.4
+--- !u!95 &-8270170481200883993
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280866443824233341}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 55a69dc51917cf94e86c358c84ed8edb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
