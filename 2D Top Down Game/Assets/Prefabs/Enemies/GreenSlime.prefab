@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 9085003717512312426}
   - component: {fileID: 6539838156054063668}
   - component: {fileID: -3840454273799761185}
+  - component: {fileID: 248295733544597474}
   m_Layer: 0
   m_Name: GreenSlime
   m_TagString: Untagged
@@ -169,6 +170,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roamChangeDirFLoat: 0.2
+  attackRange: 5
+  enemyType: {fileID: 0}
+  attackCooldown: 2
+  stopMovingWhileAttacking: 0
 --- !u!114 &3569036611753323211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +262,21 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &248295733544597474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3946649971166979918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f900410b3e4b24bbeb95d68710c5ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldCoin: {fileID: 4467186413579072742, guid: 75e440bd8bec56840990f608730d07be, type: 3}
+  healthGlobe: {fileID: 4467186413579072742, guid: bea5fe7d0e9077b4c86cbd604c4d600d, type: 3}
+  staminaGlobe: {fileID: 4467186413579072742, guid: 61f2bc1ab69d5d5449c33feb094a3981, type: 3}
 --- !u!1 &4753188060088757350
 GameObject:
   m_ObjectHideFlags: 0
