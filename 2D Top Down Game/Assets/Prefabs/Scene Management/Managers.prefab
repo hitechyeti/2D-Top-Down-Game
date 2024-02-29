@@ -199,6 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8463083173709281150}
+  - component: {fileID: 4703835286813238738}
   m_Layer: 0
   m_Name: Economy Manager
   m_TagString: Untagged
@@ -221,6 +222,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2177657719357128919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4703835286813238738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2865726890561691712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed573fba31c6ba142bb1a6e81f99ed87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5815530210062021615
 GameObject:
   m_ObjectHideFlags: 0
