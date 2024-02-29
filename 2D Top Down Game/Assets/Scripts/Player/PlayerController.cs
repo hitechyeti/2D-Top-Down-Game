@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : Singleton<PlayerController>
 {
     public bool FacingLeft { get { return facingLeft; } }
+    public bool WeaponEquipped { get; set; }
 
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
@@ -23,6 +24,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private bool facingLeft = false;
     private bool isDashing = false;
+
+    readonly int EQUIPPED_HASH = Animator.StringToHash("WeaponEquipped");
 
     protected override void Awake()
     {
@@ -76,6 +79,8 @@ public class PlayerController : Singleton<PlayerController>
 
         anim.SetFloat("moveX", movement.x);
         anim.SetFloat("moveY", movement.y);
+
+        anim.SetBool(EQUIPPED_HASH, WeaponEquipped);
     }
 
     private void Move()

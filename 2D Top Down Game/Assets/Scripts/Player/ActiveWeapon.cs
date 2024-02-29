@@ -39,6 +39,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     public void NewWeapon (MonoBehaviour newWeapon)
     {
         CurrentActiveWeapon = newWeapon;
+        //Should I protect this var?
+        PlayerController.Instance.WeaponEquipped = true;
         AttackCooldown();
         timeBetweenAttacks = (CurrentActiveWeapon as IWeapon).GetWeaponInfo().weaponCooldown;
     }
@@ -46,6 +48,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     public void WeaponNull()
     {
         CurrentActiveWeapon = null;
+        //Should I protect this var?
+        PlayerController.Instance.WeaponEquipped = false;
     }
 
     private void AttackCooldown()
