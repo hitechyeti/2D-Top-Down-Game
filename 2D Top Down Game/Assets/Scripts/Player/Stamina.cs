@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class Stamina : Singleton<Stamina>
 {
+
     public int CurrentStamina { get; private set; }
 
-    [SerializeField] private Sprite fullStaminaImage, emptyStaminaImage;
     [SerializeField] private int timeBetweenStaminaRefresh = 3;
 
-    private Transform staminaContainer;
     private int startingStamina = 3;
     private int maxStamina;
-    const string STAMINA_CONTAINER_TEXT = "Stamina Container";
+    private Slider staminaSlider;
+
+    const string STAMINA_SLIDER_TEXT = "Stamina Slider";
 
     protected override void Awake()
     {
@@ -25,13 +26,13 @@ public class Stamina : Singleton<Stamina>
 
     private void Start()
     {
-        staminaContainer = GameObject.Find(STAMINA_CONTAINER_TEXT).transform;
+
     }
 
     public void UseStamina()
     {
         CurrentStamina--;
-        UpdateStaminaImages();
+        UpdateStaminaSlider();
         StopAllCoroutines();
         StartCoroutine(RefreshStaminaRoutine());
     }
@@ -42,13 +43,13 @@ public class Stamina : Singleton<Stamina>
         {
             CurrentStamina++;
         }
-        UpdateStaminaImages();
+        UpdateStaminaSlider();
     }
 
     public void ReplenishStaminaOnDeath()
     {
         CurrentStamina = startingStamina;
-        UpdateStaminaImages();
+        UpdateStaminaSlider();
     }
 
     private IEnumerator RefreshStaminaRoutine()
@@ -60,21 +61,15 @@ public class Stamina : Singleton<Stamina>
         }
     }
 
-    private void UpdateStaminaImages()
+    private void UpdateStaminaSlider()
     {
-        for (int i = 0; i < maxStamina; i++)
+        if (staminaSlider == null)
         {
-            Transform child = staminaContainer.GetChild(i);
-            Image image = child?.GetComponent<Image>();
-
-            if (i <= CurrentStamina - 1)
-            {
-                image.sprite = fullStaminaImage;
-            }
-            else
-            {
-                image.sprite = emptyStaminaImage;
-            }
+            staminaSlider = GameObject.Find(STAMINA_SLIDER_TEXT).GetComponent<Slider>();
         }
+
+        staminaSlider.maxValue = maxStamina;
+        staminaSlider.value = CurrentStamina;
     }
+
 }

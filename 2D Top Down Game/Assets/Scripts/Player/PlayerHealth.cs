@@ -9,18 +9,20 @@ public class PlayerHealth : Singleton<PlayerHealth>
 {
     public bool IsDead {  get; private set; }
 
+    [SerializeField] private Sprite fullHeartImage, emptyHeartImage, noHeartImage;
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10;
     [SerializeField] private float damageRecoveryTime = 1f;
 
-    private Slider healthSlider;
+    private Transform heartContainer;
+    private int maxPossibleHealth = 10;
     private int currentHealth;
     private bool canTakeDamage = true;
 
     private Knockback knockback;
     private Flash flash;
 
-    const string HEALTH_SLIDER_TEXT = "Health Slider";
+    const string HEART_CONTAINER_TEXT = "New Heart Container";
     const string RESPAWN_AREA_TEXT = "Lvl_0";
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
@@ -34,10 +36,11 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private void Start()
     {
+        heartContainer = GameObject.Find(HEART_CONTAINER_TEXT).transform;
+
         IsDead = false;
         currentHealth = maxHealth;
-
-        UpdateHealthSlider();
+        UpdateHeartImages();
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -55,12 +58,11 @@ public class PlayerHealth : Singleton<PlayerHealth>
         if (currentHealth < maxHealth)
         {
             currentHealth += 1;
-
-            UpdateHealthSlider();
+            UpdateHeartImages();
         } 
     }
 
-    public void TakeDamage(int damageAmunt, Transform hitTransform)
+    public void TakeDamage(int damageAmount, Transform hitTransform)
     {
         if (!canTakeDamage) { return;  }
 
@@ -68,10 +70,11 @@ public class PlayerHealth : Singleton<PlayerHealth>
         knockback.GetKnockedBack(hitTransform, knockBackThrustAmount);
         StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
-        currentHealth -= damageAmunt;
+        currentHealth -= damageAmount;
         StartCoroutine(DamageRecoveryRoutine());
 
-        UpdateHealthSlider();
+        UpdateHeartImages();
+
         CheckIfPlayerDeath();
     }
 
@@ -101,15 +104,26 @@ public class PlayerHealth : Singleton<PlayerHealth>
         canTakeDamage = true;
     }
 
-    private void UpdateHealthSlider()
+    private void UpdateHeartImages()
     {
-        if (healthSlider == null)
+        for (int i = 0; i < maxPossibleHealth; i++)
         {
-            healthSlider = GameObject.Find(HEALTH_SLIDER_TEXT).GetComponent<Slider>();
-        }
+            Transform child = heartContainer.GetChild(i);
+            Image image = child?.GetComponent<Image>();
 
-        healthSlider.maxValue = maxHealth;
-        healthSlider.value = currentHealth;
+                if (i <= currentHealth - 1)
+                {
+                    image.sprite = fullHeartImage;
+                }
+                else if(i <= maxHealth - 1)
+                {
+                    image.sprite = emptyHeartImage;
+                }
+                else
+                {
+                    image.sprite = noHeartImage;
+                } 
+        }
     }
 
 }
