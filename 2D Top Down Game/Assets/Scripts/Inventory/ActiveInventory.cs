@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActiveInventory : Singleton<ActiveInventory>
 {
     private int activeSlotIndexNum = 0;
 
     private PlayerControls playerControls;
+
+    [SerializeField] private Sprite woodenSwordImage, stoneSwordImage;
+    [SerializeField] private Sprite shortBowImage, longBowImage;
+    [SerializeField] private Sprite electricStaffImage, fireStaffImage;
 
     protected override void Awake()
     {
@@ -76,4 +81,68 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
         ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
     }
+
+    //NEW INVENTORY SECTION
+    public void SetWoodenSword()
+    {
+        Transform childTransform = transform.GetChild(1);
+        InventorySlot inventorySlot = childTransform.GetComponentInChildren<InventorySlot>();
+        Image image = inventorySlot.GetComponentInChildren<Image>();
+
+        image.sprite = woodenSwordImage;
+        inventorySlot.SetWoodenSword();
+    }
+
+    public void SetStoneSword()
+    {
+        Transform childTransform = transform.GetChild(1);
+        InventorySlot inventorySlot = childTransform.GetComponentInChildren<InventorySlot>();
+        Image image = inventorySlot.GetComponentInChildren<Image>();
+
+        image.sprite = stoneSwordImage;
+        inventorySlot.SetStoneSword();
+    }
+
+    public void SetShortBow()
+    {
+        Transform childTransform = transform.GetChild(2);
+        InventorySlot inventorySlot = childTransform.GetComponentInChildren<InventorySlot>();
+        Image image = inventorySlot.GetComponentInChildren<Image>();
+
+        image.sprite = shortBowImage;
+        inventorySlot.SetShortBow();
+    }
+
+    public void SetLongBow()
+    {
+        Transform childTransform = transform.GetChild(2);
+        InventorySlot inventorySlot = childTransform.GetComponentInChildren<InventorySlot>();
+        Image image = inventorySlot.GetComponentInChildren<Image>();
+
+        image.sprite = longBowImage;
+        inventorySlot.SetLongBow();
+    }
+
+    public void SetElectricStaff()
+    {
+        Transform childTransform = transform.GetChild(3);
+        InventorySlot inventorySlot = childTransform.GetComponentInChildren<InventorySlot>();
+        Image image = inventorySlot.GetComponentInChildren<Image>();
+
+        image.sprite = electricStaffImage;
+        inventorySlot.SetElectricStaff();
+    }
+
+    public void SetFireStaff()
+    {
+        Transform childTransform = transform.GetChild(3);
+        InventorySlot inventorySlot = childTransform.GetComponentInChildren<InventorySlot>();
+        Image image = inventorySlot.GetComponentInChildren<Image>();
+
+        image.sprite = fireStaffImage;
+        inventorySlot.SetFireStaff();
+    }
+
+    //END NEW INVENTORY SECTION
+
 }
