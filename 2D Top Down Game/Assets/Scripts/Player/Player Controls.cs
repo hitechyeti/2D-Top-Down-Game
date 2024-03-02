@@ -109,6 +109,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""AltAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf9b78b1-bde3-42ae-9d1f-c80aa38138c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""38a1a489-5208-4dea-9de7-4f4647a5a212"",
@@ -138,6 +147,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f317c190-011e-40f3-a8cb-e6d8c8593afc"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AltAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -224,6 +244,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // Combat
         m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
         m_Combat_Attack = m_Combat.FindAction("Attack", throwIfNotFound: true);
+        m_Combat_AltAttack = m_Combat.FindAction("AltAttack", throwIfNotFound: true);
         m_Combat_Dash = m_Combat.FindAction("Dash", throwIfNotFound: true);
         // Inventory
         m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
@@ -336,12 +357,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Combat;
     private List<ICombatActions> m_CombatActionsCallbackInterfaces = new List<ICombatActions>();
     private readonly InputAction m_Combat_Attack;
+    private readonly InputAction m_Combat_AltAttack;
     private readonly InputAction m_Combat_Dash;
     public struct CombatActions
     {
         private @PlayerControls m_Wrapper;
         public CombatActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Attack => m_Wrapper.m_Combat_Attack;
+        public InputAction @AltAttack => m_Wrapper.m_Combat_AltAttack;
         public InputAction @Dash => m_Wrapper.m_Combat_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Combat; }
         public void Enable() { Get().Enable(); }
@@ -355,6 +378,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @AltAttack.started += instance.OnAltAttack;
+            @AltAttack.performed += instance.OnAltAttack;
+            @AltAttack.canceled += instance.OnAltAttack;
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
@@ -365,6 +391,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @AltAttack.started -= instance.OnAltAttack;
+            @AltAttack.performed -= instance.OnAltAttack;
+            @AltAttack.canceled -= instance.OnAltAttack;
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
@@ -438,6 +467,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface ICombatActions
     {
         void OnAttack(InputAction.CallbackContext context);
+        void OnAltAttack(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
     }
     public interface IInventoryActions

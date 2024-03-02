@@ -153,7 +153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f4bf28f53ee7d694fab07ce9b975de09, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf2cb49a730598441a262028bb82566d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -365,7 +365,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bde35008adc20d4f8f5ba88b7c23e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 11400000, guid: f69ca967c1d47da4084c0339092a37de, type: 2}
+  weaponInfo: {fileID: 0}
+  woodenSword: {fileID: 11400000, guid: 5a3a5cc412c797345b6473424835276e, type: 2}
+  stoneSword: {fileID: 11400000, guid: 5a3a5cc412c797345b6473424835276e, type: 2}
+  shortBow: {fileID: 11400000, guid: c59a26f2da59d0c449fd92f78baad118, type: 2}
+  longBow: {fileID: 11400000, guid: c59a26f2da59d0c449fd92f78baad118, type: 2}
+  electricStaff: {fileID: 11400000, guid: f69ca967c1d47da4084c0339092a37de, type: 2}
+  fireStaff: {fileID: 11400000, guid: f69ca967c1d47da4084c0339092a37de, type: 2}
 --- !u!1 &1846151656078098151
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70, y: -174}
+  m_AnchoredPosition: {x: 72, y: -161.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1974327065530658555
@@ -1471,6 +1477,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 0}
+  woodenSword: {fileID: 11400000, guid: 5a3a5cc412c797345b6473424835276e, type: 2}
+  stoneSword: {fileID: 11400000, guid: 5a3a5cc412c797345b6473424835276e, type: 2}
+  shortBow: {fileID: 11400000, guid: c59a26f2da59d0c449fd92f78baad118, type: 2}
+  longBow: {fileID: 11400000, guid: c59a26f2da59d0c449fd92f78baad118, type: 2}
+  electricStaff: {fileID: 11400000, guid: f69ca967c1d47da4084c0339092a37de, type: 2}
+  fireStaff: {fileID: 11400000, guid: f69ca967c1d47da4084c0339092a37de, type: 2}
 --- !u!1 &4819997613879308973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,7 +1723,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bde35008adc20d4f8f5ba88b7c23e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 11400000, guid: 5a3a5cc412c797345b6473424835276e, type: 2}
+  weaponInfo: {fileID: 0}
+  woodenSword: {fileID: 11400000, guid: 5a3a5cc412c797345b6473424835276e, type: 2}
+  stoneSword: {fileID: 11400000, guid: 5a3a5cc412c797345b6473424835276e, type: 2}
+  shortBow: {fileID: 11400000, guid: c59a26f2da59d0c449fd92f78baad118, type: 2}
+  longBow: {fileID: 11400000, guid: c59a26f2da59d0c449fd92f78baad118, type: 2}
+  electricStaff: {fileID: 11400000, guid: f69ca967c1d47da4084c0339092a37de, type: 2}
+  fireStaff: {fileID: 11400000, guid: f69ca967c1d47da4084c0339092a37de, type: 2}
 --- !u!1 &5440718154609059792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,7 +1970,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bde35008adc20d4f8f5ba88b7c23e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponInfo: {fileID: 11400000, guid: c59a26f2da59d0c449fd92f78baad118, type: 2}
+  weaponInfo: {fileID: 0}
+  woodenSword: {fileID: 11400000, guid: 5a3a5cc412c797345b6473424835276e, type: 2}
+  stoneSword: {fileID: 11400000, guid: 5a3a5cc412c797345b6473424835276e, type: 2}
+  shortBow: {fileID: 11400000, guid: c59a26f2da59d0c449fd92f78baad118, type: 2}
+  longBow: {fileID: 11400000, guid: c59a26f2da59d0c449fd92f78baad118, type: 2}
+  electricStaff: {fileID: 11400000, guid: f69ca967c1d47da4084c0339092a37de, type: 2}
+  fireStaff: {fileID: 11400000, guid: f69ca967c1d47da4084c0339092a37de, type: 2}
 --- !u!1 &6477400714076676008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,7 +2176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -397157864, guid: 3da37f87aac7f6a4a982b77c29004cd6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf2cb49a730598441a262028bb82566d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2316,7 +2340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c799170ed2b79874a82efa2e14ac7d6a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e405eb366895944cbbae981fc54842e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2391,7 +2415,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 29763ff2256631d4da31739c8f717e4d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf2cb49a730598441a262028bb82566d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2466,7 +2490,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1625338277, guid: 3da37f87aac7f6a4a982b77c29004cd6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bf2cb49a730598441a262028bb82566d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2642,6 +2666,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 0}
+  woodenSword: {fileID: 11400000, guid: 5a3a5cc412c797345b6473424835276e, type: 2}
+  stoneSword: {fileID: 11400000, guid: 5a3a5cc412c797345b6473424835276e, type: 2}
+  shortBow: {fileID: 11400000, guid: c59a26f2da59d0c449fd92f78baad118, type: 2}
+  longBow: {fileID: 11400000, guid: c59a26f2da59d0c449fd92f78baad118, type: 2}
+  electricStaff: {fileID: 11400000, guid: f69ca967c1d47da4084c0339092a37de, type: 2}
+  fireStaff: {fileID: 11400000, guid: f69ca967c1d47da4084c0339092a37de, type: 2}
 --- !u!1 &8170096914335798419
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,3 +2975,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095664c9ab44a4649851924c4cd8462a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  woodenSwordImage: {fileID: 21300000, guid: 376bd8719bf3ab04c95400f6389dd6da, type: 3}
+  stoneSwordImage: {fileID: 21300000, guid: 376bd8719bf3ab04c95400f6389dd6da, type: 3}
+  shortBowImage: {fileID: 21300000, guid: f1a2b8348a7aec74cac4a06437f22a82, type: 3}
+  longBowImage: {fileID: 21300000, guid: f1a2b8348a7aec74cac4a06437f22a82, type: 3}
+  electricStaffImage: {fileID: 21300000, guid: ea62d9bc3d218434a8443bf66ca58263, type: 3}
+  fireStaffImage: {fileID: 21300000, guid: ea62d9bc3d218434a8443bf66ca58263, type: 3}

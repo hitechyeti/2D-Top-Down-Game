@@ -9,7 +9,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     private PlayerControls playerControls;
     private float timeBetweenAttacks;
 
-    private bool attackButtonDown, isAttacking = false;
+    private bool attackButtonDown, attackAltButtonDown, isAttacking = false;
 
     protected override void Awake()
     {
@@ -28,12 +28,16 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         playerControls.Combat.Attack.started += _ => StartAttacking();
         playerControls.Combat.Attack.canceled += _ => StopAttacking();
 
+        playerControls.Combat.AltAttack.started += _ => StartAltAttacking();
+        playerControls.Combat.AltAttack.canceled += _ => StopAltAttacking();
+
         AttackCooldown();
     }
 
     private void Update()
     {
         Attack();
+        AltAttack();
     }
 
     public void NewWeapon (MonoBehaviour newWeapon)
@@ -75,6 +79,16 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         attackButtonDown = false;
     }
 
+    private void StartAltAttacking()
+    {
+        attackAltButtonDown = true;
+    }
+
+    private void StopAltAttacking()
+    {
+        attackAltButtonDown = false;
+    }
+
     private void Attack()
     {
         if (attackButtonDown && !isAttacking && CurrentActiveWeapon)
@@ -83,6 +97,17 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
             (CurrentActiveWeapon as IWeapon).Attack();
             
+        }
+    }
+
+    private void AltAttack()
+    {
+        if (attackAltButtonDown && !isAttacking && CurrentActiveWeapon)
+        {
+            AttackCooldown();
+
+            (CurrentActiveWeapon as IWeapon).AltAttack();
+
         }
     }
 }

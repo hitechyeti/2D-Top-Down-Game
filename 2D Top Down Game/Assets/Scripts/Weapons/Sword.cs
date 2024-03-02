@@ -44,6 +44,11 @@ public class Sword : MonoBehaviour, IWeapon
         slashAnim.transform.parent = this.transform.parent;
     }
 
+    public void AltAttack()
+    {
+        Debug.Log("Alt sword attack fired");
+    }
+
     public void DoneAttackingAnimEvent()
     {
         weaponCollider.gameObject.SetActive(false);

@@ -26,6 +26,11 @@ public class Staff : MonoBehaviour, IWeapon
         anim.SetTrigger(ATTACK_HASH);
     }
 
+    public void AltAttack()
+    {
+        Debug.Log("Alt staff attack fired");
+    }
+
     public void SpawnStaffProjectileAnimEvent()
     {
         GameObject newLaser = Instantiate(magicLaser, magicLaserSpawnPoint.position, Quaternion.identity);

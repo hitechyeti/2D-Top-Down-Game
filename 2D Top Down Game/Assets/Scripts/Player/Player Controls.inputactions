@@ -87,6 +87,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "AltAttack",
+                    "type": "Button",
+                    "id": "cf9b78b1-bde3-42ae-9d1f-c80aa38138c3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Dash",
                     "type": "Button",
                     "id": "38a1a489-5208-4dea-9de7-4f4647a5a212",
@@ -116,6 +125,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f317c190-011e-40f3-a8cb-e6d8c8593afc",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AltAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
