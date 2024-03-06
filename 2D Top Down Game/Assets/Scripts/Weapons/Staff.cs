@@ -11,6 +11,7 @@ public class Staff : MonoBehaviour, IWeapon
     private Animator anim;
 
     readonly int ATTACK_HASH = Animator.StringToHash("Attack");
+    readonly int ALT_ATTACK_HASH = Animator.StringToHash("AltAttack");
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class Staff : MonoBehaviour, IWeapon
     public void AltAttack()
     {
         Debug.Log("Alt staff attack fired");
+        //anim.SetTrigger(ALT_ATTACK_HASH);
     }
 
     public void SpawnStaffProjectileAnimEvent()

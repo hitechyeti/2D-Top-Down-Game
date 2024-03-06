@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7226737171954176409}
   - component: {fileID: 6596307595930207601}
   - component: {fileID: 8962761466802969181}
+  - component: {fileID: 2399209779852089369}
+  - component: {fileID: -7190682903272305397}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -123,3 +125,71 @@ MonoBehaviour:
   slashAnimSpawnPoint: {fileID: 0}
   swordAttackCD: 0.5
   weaponInfo: {fileID: 11400000, guid: 5a3a5cc412c797345b6473424835276e, type: 2}
+--- !u!60 &2399209779852089369
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7465660491879217068}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.125, y: 1}
+    newSize: {x: 1.125, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.055526115, y: 0.19294162}
+      - {x: -0.05878909, y: 0.25006178}
+      - {x: -0.24577868, y: 0.2583132}
+      - {x: -0.25619712, y: -0.12706214}
+      - {x: -0.24581102, y: -0.2541458}
+      - {x: -0.057283092, y: -0.24993333}
+      - {x: -0.05835425, y: -0.1874677}
+      - {x: 0.43333268, y: -0.19164583}
+      - {x: 0.5729184, y: -0.06872958}
+      - {x: 0.5697306, y: 0.06704242}
+      - {x: 0.44581324, y: 0.19580242}
+  m_UseDelaunayMesh: 0
+--- !u!114 &-7190682903272305397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7465660491879217068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4133d0371c54c34f8a7de9719ca9d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

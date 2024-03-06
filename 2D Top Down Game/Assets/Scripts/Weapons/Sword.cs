@@ -46,7 +46,7 @@ public class Sword : MonoBehaviour, IWeapon
 
     public void AltAttack()
     {
-        Debug.Log("Alt sword attack fired");
+        anim.SetTrigger("AltAttack");
     }
 
     public void DoneAttackingAnimEvent()

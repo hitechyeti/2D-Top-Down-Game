@@ -8,6 +8,9 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private PlayerControls playerControls;
     private float timeBetweenAttacks;
+    //set below to private later
+    public int swordComboNum = 1;
+    private bool isSwordCombo = false;
 
     private bool attackButtonDown, attackAltButtonDown, isAttacking = false;
 
@@ -67,6 +70,13 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     {
         yield return new WaitForSeconds(timeBetweenAttacks);
         isAttacking = false;
+        StartCoroutine(ResetComboRoutine());
+    }
+
+    private IEnumerator ResetComboRoutine()
+    {
+        yield return new WaitForSeconds(0.3f);
+        swordComboNum = 1;
     }
 
     private void StartAttacking()
@@ -93,10 +103,37 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     {
         if (attackButtonDown && !isAttacking && CurrentActiveWeapon)
         {
+            if (ActiveInventory.Instance.activeSlotIndexNum == 1)
+            {
+                if (swordComboNum == 1)
+                {
+                    swordComboNum++;
+                    isSwordCombo = true;
+                    Debug.Log("Swinging sword 1");
+                    (CurrentActiveWeapon as IWeapon).Attack();
+                }
+                else if (swordComboNum == 2)
+                {
+                    swordComboNum++;
+                    isSwordCombo = true;
+                    Debug.Log("Swinging sword 2");
+                    (CurrentActiveWeapon as IWeapon).Attack();
+                }
+                else if (swordComboNum == 3)
+                {
+                    swordComboNum++;
+                    isSwordCombo = true;
+                    Debug.Log("Swinging sword 3");
+                    (CurrentActiveWeapon as IWeapon).AltAttack();
+                }
+            }
+            else
+            {
+                (CurrentActiveWeapon as IWeapon).Attack();
+            }
+
             AttackCooldown();
 
-            (CurrentActiveWeapon as IWeapon).Attack();
-            
         }
     }
 
