@@ -170,10 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28254727929e89d458d207b2dc928058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roamChangeDirFLoat: 0.2
+  roamChangeDirFLoat: 1.2
   attackRange: 5
   enemyType: {fileID: 497602607377975716}
-  attackCooldown: 2
+  attackCooldown: 3
   stopMovingWhileAttacking: 1
 --- !u!114 &6143642486575563021
 MonoBehaviour:
@@ -261,7 +261,7 @@ MonoBehaviour:
   angleSpread: 101
   startingDistance: 0.3
   timeBetweenBursts: 1
-  restTime: 0.5
+  restTime: 2
   stagger: 1
   oscillate: 1
 --- !u!114 &-8402996269012590826
@@ -326,7 +326,7 @@ Transform:
   m_GameObject: {fileID: 5093203308290581978}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.401, z: 0}
+  m_LocalPosition: {x: 0, y: -0.305, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []

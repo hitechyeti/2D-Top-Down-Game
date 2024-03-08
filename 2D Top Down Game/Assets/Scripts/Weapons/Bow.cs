@@ -20,22 +20,30 @@ public class Bow : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        anim.SetTrigger(FIRE_HASH);
-        GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
-        newArrow.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
+        if (ArrowManager.Instance.CurrentArrows >= 1)
+        {
+            ArrowManager.Instance.UpdateCurrentArrows(-1);
+            anim.SetTrigger(FIRE_HASH);
+            GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
+            newArrow.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
+        }
     }
 
     public void AltAttack()
     {
-        Quaternion offset1 = Quaternion.Euler(0f, 0f, eulerOffset);
-        Quaternion offset2 = Quaternion.Euler(0f, 0f, -eulerOffset);
-        anim.SetTrigger(FIRE_HASH);
-        GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
-        newArrow.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
-        GameObject newArrow2 = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation * Quaternion.Inverse(offset1));
-        newArrow2.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
-        GameObject newArrow3 = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation * Quaternion.Inverse(offset2));
-        newArrow3.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
+        if (ArrowManager.Instance.CurrentArrows >= 3)
+        {
+            ArrowManager.Instance.UpdateCurrentArrows(-3);
+            Quaternion offset1 = Quaternion.Euler(0f, 0f, eulerOffset);
+            Quaternion offset2 = Quaternion.Euler(0f, 0f, -eulerOffset);
+            anim.SetTrigger(FIRE_HASH);
+            GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
+            newArrow.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
+            GameObject newArrow2 = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation * Quaternion.Inverse(offset1));
+            newArrow2.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
+            GameObject newArrow3 = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation * Quaternion.Inverse(offset2));
+            newArrow3.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
+        }
     }
 
     public WeaponInfo GetWeaponInfo()

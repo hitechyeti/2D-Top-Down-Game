@@ -24,11 +24,6 @@ public class Stamina : Singleton<Stamina>
         CurrentStamina = startingStamina;
     }
 
-    private void Start()
-    {
-
-    }
-
     public void UseStamina()
     {
         CurrentStamina--;
