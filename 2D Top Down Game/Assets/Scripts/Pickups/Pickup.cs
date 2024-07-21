@@ -9,7 +9,8 @@ public class Pickup : MonoBehaviour
     {
         GoldCoin,
         StaminaGlobe,
-        HealthGlobe
+        HealthGlobe,
+        ManaGlobe
     }
 
     [SerializeField] private PickUpType pickUpType;
@@ -99,7 +100,10 @@ public class Pickup : MonoBehaviour
                 break;
 
             case PickUpType.StaminaGlobe:
-                Stamina.Instance.RefreshStamina();
+                //Stamina.Instance.RefreshStamina();
+                break;
+            case PickUpType.ManaGlobe:
+                Mana.Instance.RefreshMana();
                 break;
             default:
                 break;
